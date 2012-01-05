@@ -17,12 +17,12 @@ class Sender(models.Model):
     latitude = models.DecimalField(decimal_places=6, max_digits=8)
     longitude = models.DecimalField(decimal_places=6, max_digits=8)
     senderpower = models.FloatField(default=1)
-    group = models.ForeignKey('SenderGroup')
+    group = models.ForeignKey('SenderGroup', related_name='senders')
     
     class Meta:
         verbose_name = u'Sender'
         verbose_name_plural = u'Sender'
     
     def __unicode__(self):
-        return u"%s, %s" (self.latitude, self.longitude)
+        return u"%s, %s" % (self.latitude, self.longitude)
 
